@@ -8,22 +8,32 @@ import * as Plugin from "./quartz/plugins"
  */
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "🪴 Quartz 4.0",
+    pageTitle: "Peter's Mind Vault",
     enableSPA: true,
     enablePopovers: true,
     analytics: {
-      provider: "plausible",
+      //provider: "plausible",
+      provider: "google",
+      tagId: "UA-9153941-1",
     },
     locale: "en-US",
-    baseUrl: "quartz.jzhao.xyz",
-    ignorePatterns: ["private", "templates", ".obsidian"],
+    baseUrl: "notes.peterpeerdeman.nl",
+    ignorePatterns: [
+      "private",
+      "templates",
+      ".obsidian",
+      ".git",
+      "daily-notes",
+      "!(PublicMedia)**/!(*.md)",
+      "!(*.md)",
+    ],
     defaultDateType: "created",
     theme: {
       fontOrigin: "googleFonts",
       cdnCaching: true,
       typography: {
-        header: "Schibsted Grotesk",
-        body: "Source Sans Pro",
+        header: "Vollkorn SC",
+        body: "Vollkorn",
         code: "IBM Plex Mono",
       },
       colors: {
@@ -64,13 +74,13 @@ const config: QuartzConfig = {
         },
         keepBackground: false,
       }),
-      Plugin.ObsidianFlavoredMarkdown({ enableInHtmlEmbed: false }),
+      Plugin.ObsidianFlavoredMarkdown({ enableInHtmlEmbed: true }),
       Plugin.GitHubFlavoredMarkdown(),
       Plugin.TableOfContents(),
       Plugin.CrawlLinks({ markdownLinkResolution: "shortest" }),
       Plugin.Description(),
     ],
-    filters: [Plugin.RemoveDrafts()],
+    filters: [Plugin.RemoveDrafts(), Plugin.ExplicitPublish()],
     emitters: [
       Plugin.AliasRedirects(),
       Plugin.ComponentResources(),
