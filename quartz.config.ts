@@ -25,6 +25,8 @@ const config: QuartzConfig = {
       ".obsidian",
       ".git",
       "daily-notes",
+      "People",
+      "Meetings",
       "!(PublicMedia)**/!(*.md)",
       "!(*.md)",
     ],
