@@ -27,7 +27,7 @@ const config: QuartzConfig = {
       "daily-notes",
       "People",
       "Meetings",
-      "!(PublicMedia)**/!(*.md)",
+      "!(attachments)**/!(*.md)",
       "!(*.md)",
     ],
     defaultDateType: "created",
