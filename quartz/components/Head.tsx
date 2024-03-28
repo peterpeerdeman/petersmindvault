@@ -35,6 +35,10 @@ export default (() => {
         {cfg.baseUrl && <meta property="og:image" content={ogImagePath} />}
         <meta property="og:width" content="1200" />
         <meta property="og:height" content="675" />
+        <script
+          type="text/javascript"
+          src="https://unpkg.com/zapthreads/dist/zapthreads.iife.js"
+        ></script>
         <link rel="icon" href={iconPath} />
         <meta name="description" content={description} />
         <meta name="generator" content="Quartz" />

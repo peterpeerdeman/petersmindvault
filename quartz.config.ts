@@ -18,6 +18,7 @@ const config: QuartzConfig = {
     },
     locale: "en-US",
     baseUrl: "notes.peterpeerdeman.nl",
+    nostrAuthor: "npub1fldgkyxjm92mr7zlrejmhd3ymlzx2awhpxpwserzl5v2w7a7a93q0n7wu7",
     ignorePatterns: [
       "private",
       "templates",

@@ -209,6 +209,8 @@ export function renderPage(
       ))}
     </div>
   )
+  const nostrAnchor = `https://${cfg.baseUrl}/${slug}`
+  const nostrAuthor = cfg.nostrAuthor
 
   const lang = componentData.fileData.frontmatter?.lang ?? cfg.locale?.split("-")[0] ?? "en"
   const doc = (
@@ -232,6 +234,7 @@ export function renderPage(
                 </div>
               </div>
               <Content {...componentData} />
+              <zap-threads anchor={nostrAnchor} author={nostrAuthor} />
             </div>
             {RightComponent}
           </Body>
