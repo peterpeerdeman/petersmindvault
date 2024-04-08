@@ -30,7 +30,7 @@ const config: QuartzConfig = {
       "!(attachments)**/!(*.md)",
       "!(*.md)",
     ],
-    defaultDateType: "modified",
+    defaultDateType: "created",
     theme: {
       fontOrigin: "googleFonts",
       cdnCaching: true,

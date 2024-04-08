@@ -11,9 +11,8 @@ export const sharedPageComponents: SharedLayout = {
 }
 
 const recentNotesConfig = {
-  title: "Recently Modified",
+  title: "Latest published",
   limit: 5,
-  linkToMore: "tags",
 }
 
 // components for pages that display a single page (e.g. a single note)
