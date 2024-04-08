@@ -1,5 +1,6 @@
 import { PageLayout, SharedLayout } from "./quartz/cfg"
 import * as Component from "./quartz/components"
+import { byDateAndAlphabetical } from "./quartz/components/PageList"
 
 // components shared across all pages
 export const sharedPageComponents: SharedLayout = {
@@ -11,8 +12,17 @@ export const sharedPageComponents: SharedLayout = {
 }
 
 const recentNotesConfig = {
-  title: "Latest published",
-  limit: 5,
+  title: "Recent notes",
+  limit: 3,
+}
+
+const randomSort = (a: any, b: any) => {
+  return Math.random() - 0.5
+}
+
+const explorerConfig = {
+  title: "Explore",
+  sortFn: randomSort,
 }
 
 // components for pages that display a single page (e.g. a single note)
@@ -26,7 +36,8 @@ export const defaultContentPageLayout: PageLayout = {
   left: [
     Component.PageTitle(),
     Component.DesktopOnly(Component.TableOfContents()),
-    Component.DesktopOnly(Component.RecentNotes(recentNotesConfig)),
+    //Component.DesktopOnly(Component.RecentNotes(recentNotesConfig)),
+    Component.DesktopOnly(Component.Explorer(explorerConfig)),
   ],
   right: [
     Component.Search(),
@@ -34,7 +45,8 @@ export const defaultContentPageLayout: PageLayout = {
     Component.Darkmode(),
     Component.Graph(),
     Component.Backlinks(),
-    Component.MobileOnly(Component.RecentNotes(recentNotesConfig)),
+    Component.RecentNotes(recentNotesConfig),
+    Component.MobileOnly(Component.Explorer(explorerConfig)),
   ],
 }
 
@@ -46,6 +58,7 @@ export const defaultListPageLayout: PageLayout = {
     Component.MobileOnly(Component.Spacer()),
     Component.Search(),
     Component.Darkmode(),
+    Component.DesktopOnly(Component.Explorer(explorerConfig)),
   ],
-  right: [],
+  right: [Component.Graph(), Component.MobileOnly(Component.Explorer(explorerConfig))],
 }
