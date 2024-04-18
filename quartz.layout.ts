@@ -1,6 +1,7 @@
 import { PageLayout, SharedLayout } from "./quartz/cfg"
 import * as Component from "./quartz/components"
 import { byDateAndAlphabetical } from "./quartz/components/PageList"
+import { SimpleSlug } from "./quartz/util/path"
 
 // components shared across all pages
 export const sharedPageComponents: SharedLayout = {
@@ -13,7 +14,8 @@ export const sharedPageComponents: SharedLayout = {
 
 const recentNotesConfig = {
   title: "Recent notes",
-  limit: 3,
+  limit: 5,
+  linkToMore: "changelog" as SimpleSlug,
 }
 
 const randomSort = (a: any, b: any) => {
@@ -36,7 +38,6 @@ export const defaultContentPageLayout: PageLayout = {
   left: [
     Component.PageTitle(),
     Component.DesktopOnly(Component.TableOfContents()),
-    //Component.DesktopOnly(Component.RecentNotes(recentNotesConfig)),
     Component.DesktopOnly(Component.Explorer(explorerConfig)),
   ],
   right: [
