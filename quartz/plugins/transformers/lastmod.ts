@@ -68,7 +68,10 @@ export const CreatedModifiedDate: QuartzTransformerPlugin<Partial<Options> | und
 
                 try {
                   //                 modified ||= await repo.getFileLatestModifiedDateAsync(file.data.filePath!)
-                  modified ||= await repo.getFileLatestModifiedDateAsync(trimmedPath)
+                  const gitLastmodified = await repo.getFileLatestModifiedDateAsync(trimmedPath)
+                  modified ||= gitLastmodified
+                  //also use latest git date as created date, as filesystem dates dont work in remote builds
+                  created ||= gitLastmodified
                 } catch {
                   console.log(
                     chalk.yellow(
