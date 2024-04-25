@@ -62,6 +62,7 @@ async function renderGraph(container: string, fullSlug: FullSlug) {
 
     for (const dest of outgoing) {
       if (validLinks.has(dest)) {
+        if (source == "Changelog" || dest == "Changelog") break //TODO make filter this configurable
         links.push({ source: source, target: dest })
       }
     }
