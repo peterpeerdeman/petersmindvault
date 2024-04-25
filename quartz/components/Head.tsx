@@ -17,6 +17,7 @@ export default (() => {
 
     const iconPath = joinSegments(baseDir, "static/icon.png")
     const ogImagePath = `https://${cfg.baseUrl}/static/twitter-card.jpg`
+    const zapthreadsPath = `/static/zapthreads.iife.js`
 
     return (
       <head>
@@ -35,10 +36,7 @@ export default (() => {
         {cfg.baseUrl && <meta property="og:image" content={ogImagePath} />}
         <meta property="og:width" content="1200" />
         <meta property="og:height" content="675" />
-        <script
-          type="text/javascript"
-          src="https://unpkg.com/zapthreads/dist/zapthreads.iife.js"
-        ></script>
+        <script type="text/javascript" src={zapthreadsPath}></script>
         <link rel="icon" href={iconPath} />
         <meta name="description" content={description} />
         <meta name="generator" content="Quartz" />
