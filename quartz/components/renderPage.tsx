@@ -211,6 +211,7 @@ export function renderPage(
   )
   const nostrAnchor = `https://${cfg.baseUrl}/${slug}`
   const nostrAuthor = cfg.nostrAuthor
+  const nostrRelays = `wss://nos.lol,wss://nostr.mom`
 
   const lang = componentData.fileData.frontmatter?.lang ?? cfg.locale?.split("-")[0] ?? "en"
   const doc = (
@@ -234,7 +235,7 @@ export function renderPage(
                 </div>
               </div>
               <Content {...componentData} />
-              <zap-threads anchor={nostrAnchor} author={nostrAuthor} />
+              <zap-threads anchor={nostrAnchor} author={nostrAuthor} relays={nostrRelays} />
             </div>
             {RightComponent}
           </Body>
