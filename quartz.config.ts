@@ -32,7 +32,7 @@ const config: QuartzConfig = {
       "!(*.md)",
     ],
     defaultDateType: "created",
-    generateSocialImages: false,
+    generateSocialImages: true,
     theme: {
       fontOrigin: "googleFonts",
       cdnCaching: true,
