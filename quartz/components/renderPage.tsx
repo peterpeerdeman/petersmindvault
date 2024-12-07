@@ -211,7 +211,7 @@ export function renderPage(
   )
   const nostrAnchor = `https://${cfg.baseUrl}/${slug}`
   const nostrAuthor = cfg.nostrAuthor
-  const nostrRelays = `wss://nos.lol,wss://nostr.mom`
+  const nostrRelays = `wss://relay.primal.net,wss://nos.lol,wss://nostr.mom`
 
   const lang = componentData.fileData.frontmatter?.lang ?? cfg.locale?.split("-")[0] ?? "en"
   const doc = (
