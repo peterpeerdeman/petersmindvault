@@ -2,7 +2,6 @@ import { ValidDateType } from "./components/Date"
 import { QuartzComponent } from "./components/types"
 import { ValidLocale } from "./i18n"
 import { PluginTypes } from "./plugins/types"
-import { SocialImageOptions } from "./util/og"
 import { Theme } from "./util/theme"
 
 export type Analytics =
@@ -62,10 +61,6 @@ export interface GlobalConfiguration {
    */
   baseUrl?: string
   nostrAuthor?: string
-  /**
-   * Whether to generate social images (Open Graph and Twitter standard) for link previews
-   */
-  generateSocialImages: boolean | Partial<SocialImageOptions>
   theme: Theme
   /**
    * Allow to translate the date in the language of your choice.
