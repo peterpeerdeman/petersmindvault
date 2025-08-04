@@ -195,7 +195,7 @@ export default (() => {
             <meta property="twitter:url" content={socialUrl}></meta>
           </>
         )}
-        <link rel="icon" href={iconPath} />
+        {/*<link rel="icon" href={iconPath} />*/}
         <meta name="description" content={description} />
         <meta name="generator" content="Quartz" />
         {css.map((resource) => CSSResourceToStyleElement(resource, true))}

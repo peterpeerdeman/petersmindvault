@@ -176,7 +176,6 @@ export const defaultImage: SocialImageOptions["imageStructure"] = (
           gap: "2.5rem",
         }}
       >
-        <img src={iconPath} width={135} height={135} />
         <p
           style={{
             color: cfg.theme.colors[colorScheme].dark,
