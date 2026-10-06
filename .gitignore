@@ -9,7 +9,9 @@ tsconfig.tsbuildinfo
 private/
 .replit
 replit.nix
-content
+.quartz/
+quartz/cli/tui/dist/
+.turbo/
 
 # Local Netlify folder
 .netlify

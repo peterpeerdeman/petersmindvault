@@ -4,7 +4,7 @@ import { CSSResourceToStyleElement, JSResourceToScriptElement } from "../util/re
 import { googleFontHref, googleFontSubsetHref } from "../util/theme"
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
 import { unescapeHTML } from "../util/escape"
-import { CustomOgImagesEmitterName } from "../plugins/emitters/ogImage"
+
 export default (() => {
   const Head: QuartzComponent = ({
     cfg,
@@ -25,23 +25,28 @@ export default (() => {
     const url = new URL(`https://${cfg.baseUrl ?? "example.com"}`)
     const path = url.pathname as FullSlug
     const baseDir = fileData.slug === "404" ? path : pathToRoot(fileData.slug!)
-    const zapthreadsPath = `/static/zapthreads.iife.js`
-
     const iconPath = joinSegments(baseDir, "static/icon.png")
 
     // Url of current page
     const socialUrl =
       fileData.slug === "404" ? url.toString() : joinSegments(url.toString(), fileData.slug!)
 
-    const usesCustomOgImage = ctx.cfg.plugins.emitters.some(
-      (e) => e.name === CustomOgImagesEmitterName,
-    )
+    const usesCustomOgImage = ctx.cfg.plugins.emitters.some((e) => e.name === "CustomOgImages")
     const ogImageDefaultPath = `https://${cfg.baseUrl}/static/og-image.png`
+
+    const coreStylesheet = css[0]?.content
+    const coreScript = js.find(
+      (r) => r.loadTime === "beforeDOMReady" && r.contentType === "external",
+    )
 
     return (
       <head>
         <title>{title}</title>
         <meta charSet="utf-8" />
+        {coreStylesheet && <link rel="preload" href={coreStylesheet} as="style" />}
+        {coreScript && coreScript.contentType === "external" && (
+          <link rel="preload" href={coreScript.src} as="script" />
+        )}
         {cfg.theme.cdnCaching && cfg.theme.fontOrigin === "googleFonts" && (
           <>
             <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -99,7 +104,6 @@ export default (() => {
             return resource
           }
         })}
-        <script type="text/javascript" src={zapthreadsPath}></script>
       </head>
     )
   }

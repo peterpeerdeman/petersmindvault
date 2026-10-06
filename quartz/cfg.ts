@@ -1,6 +1,6 @@
-import { ValidDateType } from "./components/Date"
 import { QuartzComponent } from "./components/types"
 import { ValidLocale } from "./i18n"
+import { PluginSpecifier } from "./plugins/loader/types"
 import { PluginTypes } from "./plugins/types"
 import { Theme } from "./util/theme"
 
@@ -42,6 +42,19 @@ export type Analytics =
       provider: "clarity"
       projectId?: string
     }
+  | {
+      provider: "matomo"
+      host: string
+      siteId: string
+    }
+  | {
+      provider: "vercel"
+    }
+  | {
+      provider: "rybbit"
+      siteId: string
+      host?: string
+    }
 
 export interface GlobalConfiguration {
   pageTitle: string
@@ -54,13 +67,10 @@ export interface GlobalConfiguration {
   analytics: Analytics
   /** Glob patterns to not search */
   ignorePatterns: string[]
-  /** Whether to use created, modified, or published as the default type of date */
-  defaultDateType: ValidDateType
   /** Base URL to use for CNAME files, sitemaps, and RSS feeds that require an absolute URL.
    *   Quartz will avoid using this as much as possible and use relative URLs most of the time
    */
   baseUrl?: string
-  nostrAuthor?: string
   theme: Theme
   /**
    * Allow to translate the date in the language of your choice.
@@ -76,6 +86,7 @@ export interface GlobalConfiguration {
 export interface QuartzConfig {
   configuration: GlobalConfiguration
   plugins: PluginTypes
+  externalPlugins?: PluginSpecifier[]
 }
 
 export interface FullPageLayout {
@@ -86,7 +97,9 @@ export interface FullPageLayout {
   afterBody: QuartzComponent[]
   left: QuartzComponent[]
   right: QuartzComponent[]
-  footer: QuartzComponent
+  footer: QuartzComponent[]
+  /** Page frame name (e.g. "default", "full-width", "minimal"). Defaults to "default". */
+  frame?: string
 }
 
 export type PageLayout = Pick<FullPageLayout, "beforeBody" | "left" | "right">

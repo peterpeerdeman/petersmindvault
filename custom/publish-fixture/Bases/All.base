@@ -1,0 +1,6 @@
+filters:
+  and:
+    - file.hasTag("LEAK_BASE")
+views:
+  - type: table
+    name: LEAK_BASE_VIEW

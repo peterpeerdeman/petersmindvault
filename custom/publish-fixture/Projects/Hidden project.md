@@ -1,0 +1,4 @@
+---
+tags: [LEAK_FOLDER_TAG]
+---
+LEAK_FOLDER_ONLY_SECRET

@@ -1,0 +1,4 @@
+filters: {}
+views:
+  - type: table
+    name: LEAK_ROOT_BASE
