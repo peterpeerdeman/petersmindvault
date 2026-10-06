@@ -131,6 +131,6 @@
     "netlify-cli": "^23.15.1",
     "prettier": "^3.8.1",
     "tsx": "^4.21.0",
-    "typescript": "^5.9.3"
+    "typescript": "^7.0.2"
   }
 }
