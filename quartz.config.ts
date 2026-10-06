@@ -27,6 +27,7 @@ const config: QuartzConfig = {
       ".git",
       "daily-notes",
       "People",
+      "Bases",
       "Meetings",
       "Accounts",
       "!(attachments)**/!(*.md)",
