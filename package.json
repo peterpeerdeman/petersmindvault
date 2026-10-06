@@ -19,7 +19,8 @@
     "test": "tsx --test",
     "profile": "0x -D prof ./quartz/bootstrap-cli.mjs build --concurrency=1",
     "install-plugins": "npx tsx ./quartz/plugins/loader/install-plugins.ts",
-    "prebuild": "npm run install-plugins"
+    "prebuild": "npm run install-plugins",
+    "test:publish": "./custom/check-publish.sh"
   },
   "engines": {
     "npm": ">=10.9.2",
@@ -54,7 +55,6 @@
     "@quartz-community/content-meta": "^1.0.0",
     "@quartz-community/content-page": "^1.0.0",
     "@quartz-community/crawl-links": "^1.0.0",
-    "@quartz-themes/core": "^2.0.0",
     "@quartz-community/created-modified-date": "^1.0.0",
     "@quartz-community/darkmode": "^1.0.0",
     "@quartz-community/description": "^1.0.0",
@@ -86,6 +86,7 @@
     "@quartz-community/tag-list": "^1.0.0",
     "@quartz-community/tag-page": "^1.0.0",
     "@quartz-community/unlisted-pages": "^1.0.0",
+    "@quartz-themes/core": "^2.0.0",
     "ansi-truncate": "^1.4.0",
     "async-mutex": "^0.5.0",
     "chokidar": "^5.0.0",
@@ -127,6 +128,7 @@
     "@types/ws": "^8.18.1",
     "@types/yargs": "^17.0.35",
     "esbuild": "^0.28.2",
+    "netlify-cli": "^23.15.1",
     "prettier": "^3.8.1",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3"
