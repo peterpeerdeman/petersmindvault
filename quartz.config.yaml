@@ -207,16 +207,14 @@ plugins:
       priority: 5
       condition: not-index
   - source: "@quartz-community/comments"
-    # TODO: enable after turning on GitHub Discussions + installing the giscus app,
-    # then fill in category/categoryId (see MIGRATION.md #17)
-    enabled: false
+    enabled: true
     options:
       provider: giscus
       options:
         repo: peterpeerdeman/petersmindvault
         repoId: R_kgDOLlumGA
-        category: Comments
-        categoryId: TODO
+        category: Announcements
+        categoryId: DIC_kwDOLlumGM4DHKG5
         mapping: pathname
         lang: en
     layout:
